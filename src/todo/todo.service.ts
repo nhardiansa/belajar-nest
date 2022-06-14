@@ -26,7 +26,7 @@ export class TodoService {
     }
   }
 
-  async findOne(id: number): Promise<TodoTransformer> {
+  async findOne(id: string): Promise<TodoTransformer> {
     const result = await this.TodoModel.findById(id);
 
     if (!result) {
@@ -37,7 +37,7 @@ export class TodoService {
   }
 
   async update(
-    id: number,
+    id: string,
     updateTodoDto: UpdateTodoDto,
   ): Promise<TodoTransformer> {
     const result = await this.TodoModel.findByIdAndUpdate(id, updateTodoDto, {
@@ -51,7 +51,7 @@ export class TodoService {
     }
   }
 
-  async remove(id: number): Promise<TodoTransformer> {
+  async remove(id: string): Promise<TodoTransformer> {
     const result = await this.TodoModel.findById(id);
     if (!result) {
       throw new Error('Data not found');

@@ -40,7 +40,7 @@ export class TodoController {
   @Get(':id')
   async findOne(@Res() res, @Param('id') id: string) {
     try {
-      const result = await this.todoService.findOne(parseInt(id));
+      const result = await this.todoService.findOne(id);
       return BaseResponse.ok(res, result, 'Success get data!');
     } catch (err) {
       return BaseResponse.badResponse(res, err, err.message);
@@ -54,7 +54,7 @@ export class TodoController {
     @Body() updateTodoDto: UpdateTodoDto,
   ) {
     try {
-      const result = await this.todoService.update(parseInt(id), updateTodoDto);
+      const result = await this.todoService.update(id, updateTodoDto);
       return BaseResponse.ok(res, result, 'Update data success!');
     } catch (err) {
       return BaseResponse.badResponse(res, err, err.message);
@@ -64,7 +64,7 @@ export class TodoController {
   @Delete(':id')
   async remove(@Res() res, @Param('id') id: string) {
     try {
-      const result = await this.todoService.remove(parseInt(id));
+      const result = await this.todoService.remove(id);
       return BaseResponse.ok(res, result, 'Data has been deleted!');
     } catch (err) {
       return BaseResponse.badResponse(res, err, err.message);

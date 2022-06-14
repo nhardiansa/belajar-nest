@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 export class BaseTransformer {
   static transform(data: object[]) {
     const array = [];
